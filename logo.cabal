@@ -3,7 +3,7 @@ version:             0.1.0.0
 synopsis:            haskell.bayern logo
 description:         Please see README.md
 homepage:            https://github.com/haskell-bayern/logo
-license:             Public Domain
+license:             PublicDomain
 license-file:        LICENSE
 author:              Christian Neukirchen
 maintainer:          chneukirchen@gmail.com
