@@ -1,7 +1,15 @@
 WIDTH = 500
-all: logo.png preview.png logo.svg preview.svg
+ALL = logo.png preview.png logo.svg preview.svg logo@2x.png
 
-%.png: %.svg
+all: $(ALL)
+
+%.png: %.unopt.png
+	optipng -o7 -out $@ $<
+
+%@2x.unopt.png: %.svg
+	convert -density 180 $< $@
+
+%.unopt.png: %.svg
 	convert $< $@
 
 %.svg: logo
@@ -11,5 +19,5 @@ logo: src/Main.hs
 	stack install --local-bin-path=.
 
 clean:
-	-rm -f logo logo.png preview.png
+	-rm -f logo $(ALL)
 	-stack clean
